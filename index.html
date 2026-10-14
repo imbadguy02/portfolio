@@ -1,0 +1,1854 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-PT">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>O Meu Portefólio | Formanda de Informática</title>
+
+    <meta name="description" content="Portefólio pessoal de uma formanda de Informática.">
+
+    <style>
+        /* CORES DO SITE */
+
+        :root {
+            --roxo-escuro: #402064;
+            --roxo: #7045c6;
+            --roxo-claro: #a78bfa;
+            --lilas: #ddd1ff;
+            --lilas-claro: #f5f1ff;
+            --branco: #ffffff;
+            --fundo: #fbfaff;
+            --texto: #241d2f;
+            --texto-secundario: #716b7d;
+            --borda: #e8e1f4;
+            --sombra: 0 18px 45px rgba(67, 32, 111, 0.12);
+            --raio: 24px;
+            --largura: 1180px;
+        }
+
+        /* RESET */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+            color: var(--texto);
+            background: var(--fundo);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        img {
+            display: block;
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(calc(100% - 40px), var(--largura));
+            margin: 0 auto;
+        }
+
+        /* MENU / CABEÇALHO */
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(232, 225, 244, 0.8);
+        }
+
+        .nav-wrap {
+            min-height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--roxo-escuro);
+            white-space: nowrap;
+        }
+
+        .logo span {
+            color: var(--roxo-claro);
+        }
+
+        .desktop-nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .desktop-nav a {
+            position: relative;
+            color: var(--texto-secundario);
+            font-size: 0.88rem;
+            font-weight: 600;
+            transition: color 0.25s ease;
+        }
+
+        .desktop-nav a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -7px;
+            width: 0;
+            height: 2px;
+            background: var(--roxo);
+            transition: width 0.25s ease;
+        }
+
+        .desktop-nav a:hover {
+            color: var(--roxo);
+        }
+
+        .desktop-nav a:hover::after {
+            width: 100%;
+        }
+
+        /* MENU MOBILE */
+
+        .mobile-nav {
+            display: none;
+        }
+
+        .mobile-nav summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 9px 15px;
+            border-radius: 12px;
+            background: var(--lilas-claro);
+            color: var(--roxo-escuro);
+            font-weight: 700;
+        }
+
+        .mobile-nav summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .mobile-nav nav {
+            position: absolute;
+            top: 70px;
+            left: 14px;
+            right: 14px;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            background: white;
+            border: 1px solid var(--borda);
+            border-radius: 18px;
+            box-shadow: var(--sombra);
+        }
+
+        .mobile-nav nav a {
+            padding: 12px 14px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        .mobile-nav nav a:hover {
+            background: var(--lilas-claro);
+            color: var(--roxo);
+        }
+
+        /* INÍCIO */
+
+        .hero {
+            position: relative;
+            min-height: calc(100vh - 78px);
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 85% 20%, rgba(167, 139, 250, 0.28), transparent 30%),
+                radial-gradient(circle at 10% 80%, rgba(221, 209, 255, 0.65), transparent 30%),
+                linear-gradient(135deg, #ffffff, #f8f4ff);
+        }
+
+        .hero-content {
+            position: relative;
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+            align-items: center;
+            gap: 60px;
+            padding: 80px 0;
+        }
+
+        .hero-text {
+            animation: aparecer 0.8s ease both;
+        }
+
+        .eyebrow {
+            color: var(--roxo);
+            text-transform: uppercase;
+            letter-spacing: 0.13em;
+            font-size: 0.77rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 7vw, 5.5rem);
+            line-height: 1.02;
+            letter-spacing: -0.055em;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 span {
+            display: block;
+            background: linear-gradient(135deg, var(--roxo-escuro), var(--roxo-claro));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero h2 {
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            margin-bottom: 18px;
+        }
+
+        .hero-description {
+            max-width: 650px;
+            color: var(--texto-secundario);
+            font-size: 1.05rem;
+            margin-bottom: 18px;
+        }
+
+        .hero-quote {
+            color: var(--roxo-escuro);
+            font-style: italic;
+            font-weight: 600;
+            margin-bottom: 28px;
+        }
+
+        /* BOTÕES */
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 11px;
+        }
+
+        .btn {
+            min-height: 46px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 11px 19px;
+            border-radius: 13px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-primary {
+            color: white;
+            background: var(--roxo);
+            box-shadow: 0 12px 25px rgba(112, 69, 198, 0.25);
+        }
+
+        .btn-primary:hover {
+            background: var(--roxo-escuro);
+        }
+
+        .btn-secondary {
+            color: var(--roxo-escuro);
+            background: white;
+            border: 1px solid var(--borda);
+        }
+
+        .btn-secondary:hover {
+            background: var(--lilas-claro);
+            border-color: var(--roxo-claro);
+        }
+
+        /* FOTO DE PERFIL */
+
+        .hero-photo-area {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 500px;
+            animation: aparecer 0.8s 0.15s ease both;
+        }
+
+        .profile-photo {
+            position: relative;
+            z-index: 2;
+            width: min(390px, 80vw);
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 10px solid white;
+            box-shadow: 0 25px 60px rgba(67, 32, 111, 0.20);
+        }
+
+        .photo-decoration {
+            position: absolute;
+            width: 430px;
+            height: 430px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--lilas), rgba(167, 139, 250, 0.15));
+            transform: rotate(8deg);
+        }
+
+        .floating-card {
+            position: absolute;
+            z-index: 4;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 16px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid var(--borda);
+            border-radius: 14px;
+            box-shadow: var(--sombra);
+            font-weight: 700;
+            font-size: 0.85rem;
+            animation: flutuar 4s ease-in-out infinite;
+        }
+
+        .floating-card span {
+            color: var(--roxo);
+        }
+
+        .card-one {
+            left: 3%;
+            top: 24%;
+        }
+
+        .card-two {
+            right: 3%;
+            bottom: 22%;
+            animation-delay: 1s;
+        }
+
+        /* SECÇÕES */
+
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-alt {
+            background: linear-gradient(180deg, #f7f3ff, #fcfaff);
+        }
+
+        .section-heading {
+            max-width: 700px;
+            margin-bottom: 50px;
+        }
+
+        .section-label {
+            color: var(--roxo);
+            text-transform: uppercase;
+            letter-spacing: 0.13em;
+            font-size: 0.77rem;
+            font-weight: 800;
+            margin-bottom: 11px;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            line-height: 1.1;
+            letter-spacing: -0.04em;
+            margin-bottom: 15px;
+        }
+
+        .section-heading h2 span {
+            color: var(--roxo);
+        }
+
+        .section-heading > p:last-child {
+            color: var(--texto-secundario);
+            font-size: 1rem;
+        }
+
+        /* SOBRE MIM */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr 0.8fr;
+            gap: 20px;
+        }
+
+        .about-card {
+            padding: 30px;
+            background: white;
+            border: 1px solid var(--borda);
+            border-radius: var(--raio);
+            box-shadow: var(--sombra);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 25px 55px rgba(67, 32, 111, 0.16);
+        }
+
+        .about-main {
+            grid-row: span 2;
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            border-radius: 14px;
+            background: var(--lilas-claro);
+            color: var(--roxo);
+            font-size: 1.3rem;
+        }
+
+        .about-card h3 {
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+
+        .about-card p {
+            color: var(--texto-secundario);
+            margin-bottom: 13px;
+        }
+
+        .check-list {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
+
+        .check-list li {
+            position: relative;
+            padding-left: 26px;
+            color: var(--texto-secundario);
+        }
+
+        .check-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--roxo);
+            font-weight: 900;
+        }
+
+        /* FORMAÇÃO */
+
+        .timeline {
+            position: relative;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(var(--roxo-claro), var(--lilas));
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 55px;
+            margin-bottom: 35px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 6px;
+            top: 6px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--roxo);
+            border: 5px solid var(--lilas-claro);
+            box-shadow: 0 0 0 2px var(--roxo-claro);
+        }
+
+        .timeline-content {
+            background: white;
+            padding: 27px;
+            border: 1px solid var(--borda);
+            border-radius: var(--raio);
+            box-shadow: var(--sombra);
+        }
+
+        .timeline-date {
+            display: inline-block;
+            margin-bottom: 8px;
+            color: var(--roxo);
+            font-weight: 800;
+            font-size: 0.85rem;
+        }
+
+        .timeline-content h3 {
+            margin-bottom: 4px;
+            font-size: 1.2rem;
+        }
+
+        .timeline-place {
+            color: var(--roxo-escuro) !important;
+            font-weight: 700;
+            margin-bottom: 10px !important;
+        }
+
+        .timeline-content p:last-child {
+            color: var(--texto-secundario);
+        }
+
+        /* LISTA EXPANSÍVEL DE UFCDs */
+
+        .ufcd-box {
+            max-width: 850px;
+            margin: 35px auto 0;
+            padding: 27px;
+            background: white;
+            border: 1px solid var(--borda);
+            border-radius: var(--raio);
+            box-shadow: var(--sombra);
+        }
+
+        .ufcd-box h3 {
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+            color: var(--roxo-escuro);
+        }
+
+        .ufcd-box > p {
+            margin-bottom: 18px;
+            color: var(--texto-secundario);
+        }
+
+        .ufcd-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            width: 100%;
+            min-height: 48px;
+            padding: 13px 17px;
+            border: none;
+            border-radius: 12px;
+            background: var(--roxo);
+            color: white;
+            font: inherit;
+            font-weight: 700;
+            text-align: left;
+            cursor: pointer;
+            transition: background 0.25s ease;
+        }
+
+        .ufcd-toggle:hover {
+            background: var(--roxo-escuro);
+        }
+
+        .ufcd-toggle:focus-visible {
+            outline: 3px solid var(--roxo-claro);
+            outline-offset: 3px;
+        }
+
+        .ufcd-arrow {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .ufcd-list {
+            display: grid;
+            gap: 10px;
+            margin-top: 18px;
+            list-style: none;
+        }
+
+        .ufcd-list[hidden] {
+            display: none;
+        }
+
+        .ufcd-list li {
+            padding: 13px 15px;
+            border: 1px solid var(--borda);
+            border-radius: 10px;
+            background: var(--lilas-claro);
+            overflow-wrap: anywhere;
+        }
+
+        .ufcd-list strong {
+            display: block;
+            margin-bottom: 3px;
+            color: var(--roxo-escuro);
+        }
+
+        .ufcd-list span {
+            display: block;
+            color: var(--texto-secundario);
+            font-size: 0.9rem;
+        }
+
+        /* COMPETÊNCIAS */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .skill-card {
+            position: relative;
+            overflow: hidden;
+            padding: 27px;
+            min-height: 185px;
+            background: white;
+            border: 1px solid var(--borda);
+            border-radius: var(--raio);
+            box-shadow: var(--sombra);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--roxo-claro);
+        }
+
+        .skill-number {
+            color: var(--roxo-claro);
+            font-weight: 900;
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+        }
+
+        .skill-card h3 {
+            margin: 18px 0 7px;
+            font-size: 1.1rem;
+        }
+
+        .skill-card p {
+            color: var(--texto-secundario);
+            font-size: 0.88rem;
+        }
+
+        /* GALERIA */
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            min-height: 230px;
+            border-radius: 20px;
+            background: var(--lilas-claro);
+            border: 1px solid var(--borda);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            min-height: 230px;
+            object-fit: cover;
+            transition: transform 0.5s ease, filter 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.06);
+            filter: brightness(0.78);
+        }
+
+        .gallery-item figcaption {
+            position: absolute;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            padding: 10px 13px;
+            border-radius: 12px;
+            background: rgba(36, 29, 47, 0.82);
+            color: white;
+            font-size: 0.82rem;
+            font-weight: 700;
+        }
+
+        /* OBJETIVOS */
+
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .objective-card {
+            padding: 32px;
+            background: white;
+            border: 1px solid var(--borda);
+            border-radius: var(--raio);
+            box-shadow: var(--sombra);
+            transition: transform 0.3s ease;
+        }
+
+        .objective-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .objective-card > span {
+            display: block;
+            color: var(--roxo-claro);
+            font-size: 2rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 25px;
+        }
+
+        .objective-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .objective-card p {
+            color: var(--texto-secundario);
+            font-size: 0.92rem;
+        }
+
+        /* CONTACTOS */
+
+        .contact-section {
+            padding-top: 80px;
+        }
+
+        .contact-box {
+            position: relative;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            padding: 55px;
+            border-radius: 32px;
+            background: linear-gradient(135deg, #402064, #7045c6);
+            color: white;
+            box-shadow: 0 30px 70px rgba(67, 32, 111, 0.25);
+        }
+
+        .contact-text .section-label {
+            color: var(--lilas);
+        }
+
+        .contact-text h2 {
+            font-size: clamp(2.2rem, 5vw, 3.5rem);
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
+
+        .contact-text h2 span {
+            color: var(--lilas);
+        }
+
+        .contact-text > p:last-child {
+            max-width: 480px;
+            color: rgba(255, 255, 255, 0.78);
+        }
+
+        .contact-links {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            gap: 13px;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 16px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: background 0.25s ease, transform 0.25s ease;
+        }
+
+        .contact-link:hover {
+            background: rgba(255, 255, 255, 0.18);
+            transform: translateX(5px);
+        }
+
+        .contact-icon {
+            width: 43px;
+            height: 43px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.13);
+            font-weight: 900;
+        }
+
+        .contact-link small {
+            display: block;
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 0.72rem;
+        }
+
+        .contact-link strong {
+            display: block;
+            font-size: 0.9rem;
+            overflow-wrap: anywhere;
+        }
+
+        /* RODAPÉ */
+
+        .site-footer {
+            padding: 28px 0;
+            background: #21162f;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .footer-content p {
+            font-size: 0.85rem;
+        }
+
+        .back-top {
+            color: var(--lilas);
+            font-size: 0.85rem;
+            font-weight: 700;
+        }
+
+        .back-top:hover {
+            color: white;
+        }
+
+        /* ANIMAÇÕES */
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes flutuar {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
+        }
+
+        /* TABLET */
+
+        @media (max-width: 1050px) {
+            .desktop-nav {
+                gap: 12px;
+            }
+
+            .desktop-nav a {
+                font-size: 0.8rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* TELEMÓVEL */
+
+        @media (max-width: 780px) {
+            .container {
+                width: min(calc(100% - 28px), var(--largura));
+            }
+
+            .nav-wrap {
+                min-height: 70px;
+            }
+
+            .desktop-nav {
+                display: none;
+            }
+
+            .mobile-nav {
+                display: block;
+            }
+
+            .hero {
+                min-height: auto;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 60px 0 70px;
+                gap: 35px;
+            }
+
+            .hero-description {
+                margin: 0 auto 18px;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-photo-area {
+                order: -1;
+                min-height: 330px;
+            }
+
+            .profile-photo {
+                width: min(280px, 75vw);
+                border-width: 7px;
+            }
+
+            .photo-decoration {
+                width: 310px;
+                height: 310px;
+            }
+
+            .card-one {
+                left: 5%;
+                top: 12%;
+            }
+
+            .card-two {
+                right: 5%;
+                bottom: 13%;
+            }
+
+            .section {
+                padding: 75px 0;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-main {
+                grid-row: auto;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .objectives-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-box {
+                grid-template-columns: 1fr;
+                padding: 35px 25px;
+                gap: 30px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .ufcd-box {
+                padding: 20px;
+            }
+        }
+
+        /* TELEMÓVEIS PEQUENOS */
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .hero-photo-area {
+                min-height: 285px;
+            }
+
+            .profile-photo {
+                width: 230px;
+            }
+
+            .photo-decoration {
+                width: 255px;
+                height: 255px;
+            }
+
+            .floating-card {
+                display: none;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item,
+            .gallery-item img {
+                min-height: 250px;
+            }
+
+            .timeline-item {
+                padding-left: 42px;
+            }
+
+            .timeline::before {
+                left: 11px;
+            }
+
+            .timeline-dot {
+                left: 2px;
+            }
+
+            .contact-box {
+                border-radius: 24px;
+            }
+        }
+
+        /* ACESSIBILIDADE */
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- MENU -->
+
+    <header class="site-header" id="inicio">
+        <div class="container nav-wrap">
+
+            <a href="#inicio" class="logo">
+                O Meu Portefólio<span>.</span>
+            </a>
+
+            <nav class="desktop-nav" aria-label="Navegação principal">
+                <a href="#inicio">Início</a>
+                <a href="#sobre">Sobre Mim</a>
+                <a href="#formacao">Formação</a>
+                <a href="#competencias">Competências</a>
+                <a href="#trabalhos">Trabalhos</a>
+                <a href="#objetivos">Objetivos</a>
+                <a href="#contactos">Contactos</a>
+            </nav>
+
+            <details class="mobile-nav">
+                <summary>☰ Menu</summary>
+
+                <nav>
+                    <a href="#inicio">Início</a>
+                    <a href="#sobre">Sobre Mim</a>
+                    <a href="#formacao">Formação</a>
+                    <a href="#competencias">Competências</a>
+                    <a href="#trabalhos">Trabalhos</a>
+                    <a href="#objetivos">Objetivos</a>
+                    <a href="#contactos">Contactos</a>
+                </nav>
+            </details>
+
+        </div>
+    </header>
+
+    <main>
+
+        <!-- INÍCIO -->
+
+        <section class="hero">
+            <div class="container hero-content">
+
+                <div class="hero-text">
+
+                    <p class="eyebrow">✦ Portefólio Pessoal</p>
+
+                    <h1>
+                        Olá, eu sou a
+                        <span>Sofia Lopes</span>
+                    </h1>
+
+                    <h2>Formanda de Informática</h2>
+
+                    <p class="hero-description">
+                        Sou uma pessoa interessada pela área da Informática,
+                        gosto de aprender novas tecnologias e estou a construir
+                        o meu percurso profissional passo a passo.
+                    </p>
+
+                    <p class="hero-quote">
+                        “Cada novo conhecimento é mais um passo para o meu futuro.”
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#trabalhos" class="btn btn-primary">Ver Portefólio</a>
+                        <a href="#sobre" class="btn btn-secondary">Sobre Mim</a>
+                        <a href="#contactos" class="btn btn-secondary">Contactos</a>
+                        <a href="#trabalhos" class="btn btn-secondary">Trabalhos</a>
+                    </div>
+
+                </div>
+
+                <div class="hero-photo-area">
+
+                    <div class="photo-decoration"></div>
+
+                    <!-- Fotografia: pasta imagens/foto-perfil.png -->
+
+                    <img
+                        src="imagens/foto-perfil.png"
+                        alt="Fotografia de perfil"
+                        class="profile-photo"
+                    >
+
+                    <div class="floating-card card-one">
+                        <span>♡</span>
+                        Aprender
+                    </div>
+
+                    <div class="floating-card card-two">
+                        <span>✦</span>
+                        Criar
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SOBRE MIM -->
+
+        <section class="section" id="sobre">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="section-label">01 · Sobre Mim</p>
+
+                    <h2>
+                        Um pouco sobre <span>mim</span>
+                    </h2>
+
+                    <p>
+                        Conhece um pouco melhor o meu percurso,
+                        os meus interesses e aquilo que procuro alcançar.
+                    </p>
+                </div>
+
+                <div class="about-grid">
+
+                    <article class="about-card about-main">
+                        <div class="card-icon">♡</div>
+
+                        <h3>Quem sou</h3>
+
+                        <p>
+                            O meu nome é <strong>Sofia Lopes</strong> e estou
+                            atualmente a realizar formação na área da Informática.
+                        </p>
+
+                        <p>
+                            Tenho interesse em aprender, experimentar e desenvolver
+                            novos conhecimentos na área das tecnologias.
+                        </p>
+
+                        <p>
+                            Ao longo da minha formação tenho tido contacto com
+                            diferentes áreas da Informática e tenho procurado
+                            transformar aquilo que aprendo em trabalhos práticos.
+                        </p>
+                    </article>
+
+                    <article class="about-card">
+                        <div class="card-icon">✦</div>
+
+                        <h3>O que gosto de aprender</h3>
+
+                        <ul class="check-list">
+                            <li>Desenvolvimento de páginas Web</li>
+                            <li>Redes Informáticas</li>
+                            <li>Sistemas Operativos</li>
+                            <li>Virtualização</li>
+                            <li>Hardware e Software</li>
+                            <li>Novas tecnologias</li>
+                        </ul>
+                    </article>
+
+                    <article class="about-card">
+                        <div class="card-icon">⌁</div>
+
+                        <h3>Os meus interesses</h3>
+
+                        <p>
+                            Tenho interesse em continuar a descobrir diferentes
+                            áreas da Informática e perceber quais delas poderão
+                            fazer parte do meu futuro profissional.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- FORMAÇÃO E UFCDs -->
+
+        <section class="section section-alt" id="formacao">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="section-label">02 · Formação</p>
+
+                    <h2>
+                        O meu percurso de <span>formação</span>
+                    </h2>
+
+                    <p>
+                        A minha formação e conhecimentos adquiridos.
+                    </p>
+                </div>
+
+                <div class="timeline">
+
+                    <article class="timeline-item">
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-content">
+                            <span class="timeline-date">2026</span>
+
+                            <h3>Formação na área de Informática</h3>
+
+                            <p class="timeline-place">
+                                Centro de Formação e Reabilitação Profissional de Alcoitão
+                            </p>
+
+                            <p>
+                                Formação orientada para conhecimentos práticos
+                                e técnicos na área das tecnologias de informação.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-content">
+                            <span class="timeline-date">UFCDs</span>
+
+                            <h3>Módulos e conhecimentos</h3>
+
+                            <p>
+                                Ao longo da formação tenho desenvolvido
+                                conhecimentos em diferentes áreas da Informática.
+                            </p>
+                        </div>
+                    </article>
+
+                    <article class="timeline-item">
+                        <div class="timeline-dot"></div>
+
+                        <div class="timeline-content">
+                            <span class="timeline-date">Em evolução</span>
+
+                            <h3>Continuar a aprender</h3>
+
+                            <p>
+                                O meu objetivo é continuar a adquirir conhecimentos
+                                e ganhar experiência ao longo da minha formação.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+
+                <!-- LISTA EXPANSÍVEL DE UFCDs -->
+
+                <div class="ufcd-box">
+
+                    <h3>📚 As minhas UFCDs concluídas</h3>
+
+                    <p>
+                        Consulta as unidades de formação que fui concluindo
+                        ao longo do meu percurso.
+                    </p>
+
+                    <button
+                        type="button"
+                        class="ufcd-toggle"
+                        id="ufcd-toggle"
+                        aria-expanded="false"
+                        aria-controls="ufcd-list"
+                    >
+                        <span id="ufcd-button-text">Ver lista de UFCDs</span>
+                        <span class="ufcd-arrow" aria-hidden="true">＋</span>
+                    </button>
+
+                    <ul class="ufcd-list" id="ufcd-list" hidden>
+
+                        <li>
+                            <strong>UFCD 7846</strong>
+                            <span>Informática - Noções Básicas</span>
+                        </li>
+
+                        <li>
+                            <strong>UFCD 0749</strong>
+                            <span>Arquitetura de Computadores</span>
+                        </li>
+
+                        <li>
+                            <strong>UFCD 0822</strong>
+                            <span>Gestão e Organização da Informação</span>
+                        </li>
+
+                        <li>
+                            <strong>UFCD 0751</strong>
+                            <span>Sistemas Operativos</span>
+                        </li>
+
+                        <li>
+                            <strong>UFCD 0752</strong>
+                            <span>Sistemas Operativos Multitarefa</span>
+                        </li>
+
+                        <li>
+                            <strong>UFCD 0753</strong>
+                            <span>Sistemas Operativos Utilitários Complementares</span>
+                        </li>
+
+                        <li>
+                            <strong>UFCD 0754</strong>
+                            <span>Processador de Texto</span>
+                        </li>
+
+                        <li>
+                            <strong>UFCD 0755</strong>
+                            <span>Processador de Texto - Funcionalidades Avançadas</span>
+                        </li>
+
+                        <li>
+                            <strong>UFCD 0778</strong>
+                            <span>Folha de Cálculo</span>
+                        </li>
+
+                        <li>
+                            <strong>UFCD 0757</strong>
+                            <span>Folha de Cálculo - Funcionalidades Avançadas</span>
+                        </li>
+
+                        <li>
+                            <strong>UFCD 0779</strong>
+                            <span>Utilitário de Apresentação Gráfica</span>
+                        </li>
+
+                        <li>
+                            <strong>UFCD 0759</strong>
+                            <span>Sistemas de Gestão de Bases de Dados</span>
+                        </li>
+
+                        <li>
+                            <strong>UFCD 0760</strong>
+                            <span>Automatização de Operações em SGBD</span>
+                        </li>
+
+                        <li>
+                            <strong>UFCD 0761</strong>
+                            <span>Aplicações de Gestão Administrativa Suportadas em SGBD</span>
+                        </li>
+
+                        <li>
+                            <strong>UFCD 0762</strong>
+                            <span>Redes de Computadores</span>
+                        </li>
+
+                        <li>
+                            <strong>UFCD 0763</strong>
+                            <span>Hardware e Tipologias de Rede</span>
+                        </li>
+
+                        <li>
+                            <strong>UFCD 0764</strong>
+                            <span>Instalação e Configuração de Redes Locais</span>
+                        </li>
+
+                        <li>
+                            <strong>UFCD 0765</strong>
+                            <span>Administração de Redes</span>
+                        </li>
+
+                        <li>
+                            <strong>UFCD 0766</strong>
+                            <span>Internet - Evolução</span>
+                        </li>
+
+                        <li>
+                            <strong>UFCD 0767</strong>
+                            <span>Internet - Navegação</span>
+                        </li>
+
+                        <li>
+                            <strong>UFCD 0768</strong>
+                            <span>Criação de Sites WEB</span>
+                        </li>
+
+                        <li>
+                            <strong>UFCD CEB3_A</strong>
+                            <span>Planear, Implementar e Monitorizar Projetos Pessoais, Profissionais e Sociais</span>
+                        </li>
+
+                        <li>
+                            <strong>UFCD CEB3_D</strong>
+                            <span>Promover a Saúde e a Preservação do Ambiente e do Património</span>
+                        </li>
+
+                        <li>
+                            <strong>UFCD MCTB3_C</strong>
+                            <span>Utilizar Conceitos Geométricos e Trigonométricos em Contextos de Vida</span>
+                        </li>
+
+                        <li>
+                            <strong>UFCD MCTB3_B</strong>
+                            <span>Utilizar Conexões Matemáticas para Resolver Problemas em Contextos de Vida</span>
+                        </li>
+
+                        <li>
+                            <strong>UFCD CDB3_C</strong>
+                            <span>Criar e Editar Conteúdos Digitais em Diferentes Formatos</span>
+                        </li>
+
+                        <li>
+                            <strong>UFCD LEB_B3</strong>
+                            <span>Compreender e Usar Oralmente e Por Escrito, Frases e Expressões Frequentes Relacionadas com Atividades de Lazer</span>
+                        </li>
+
+                        <li>
+                            <strong>UFCD LEA_B3</strong>
+                            <span>Compreender e Usar Oralmente e Por Escrito, Frases e Expressões Frequentes Relacionadas com o Mundo do Trabalho</span>
+                        </li>
+
+                        <li>
+                            <strong>UFCD CLCB3_C</strong>
+                            <span>Produzir Textos Escritos Informativos, Reflexivos e Persuasivos</span>
+                        </li>
+
+                        <li>
+                            <strong>UFCD CLCB3_A</strong>
+                            <span>Interpretar e Produzir Discursos Orais Adequados a Diferentes Contextos, Fundamentando Opiniões</span>
+                        </li>
+
+                        <li>
+                            <strong>UFCD CPSA_3</strong>
+                            <span>Resolver Problemas</span>
+                        </li>
+
+                        <li>
+                            <strong>UFCD CPSA_2</strong>
+                            <span>Interagir com os Outros</span>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!-- COMPETÊNCIAS -->
+
+        <section class="section" id="competencias">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="section-label">03 · Competências</p>
+
+                    <h2>
+                        O que tenho vindo a <span>aprender</span>
+                    </h2>
+
+                    <p>
+                        Uma seleção de áreas e ferramentas trabalhadas durante a formação.
+                    </p>
+                </div>
+
+                <div class="skills-grid">
+
+                    <div class="skill-card">
+                        <span class="skill-number">01</span>
+                        <h3>HTML</h3>
+                        <p>Estruturação de páginas Web.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <span class="skill-number">02</span>
+                        <h3>CSS</h3>
+                        <p>Estilos, layouts e páginas responsivas.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <span class="skill-number">03</span>
+                        <h3>Redes</h3>
+                        <p>Conceitos e configuração de redes.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <span class="skill-number">04</span>
+                        <h3>Windows</h3>
+                        <p>Sistemas operativos Windows.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <span class="skill-number">05</span>
+                        <h3>Folha de Cálculo</h3>
+                        <p>Excel, fórmulas e funcionalidades avançadas.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <span class="skill-number">06</span>
+                        <h3>VirtualBox</h3>
+                        <p>Utilização de máquinas virtuais.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <span class="skill-number">07</span>
+                        <h3>PowerPoint</h3>
+                        <p>Criação de apresentações gráficas.</p>
+                    </div>
+
+                    <div class="skill-card">
+                        <span class="skill-number">08</span>
+                        <h3>Microsoft Office</h3>
+                        <p>Word, PowerPoint e outras ferramentas.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- TRABALHOS / GALERIA -->
+
+        <section class="section" id="trabalhos">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="section-label">04 · Trabalhos</p>
+
+                    <h2>
+                        Galeria dos meus <span>trabalhos</span>
+                    </h2>
+
+                    <p>
+                        Alguns dos projetos desenvolvidos durante a minha aprendizagem.
+                    </p>
+                </div>
+
+                <div class="gallery-grid">
+
+                    <figure class="gallery-item">
+    <a href="trabalhos/sitegelataria/index.html"
+       target="_blank"
+       rel="noopener">
+
+        <img src="imagens/trabalho-4.jpg"
+             alt="Pré-visualização do site da gelataria">
+
+        <figcaption>
+            Site Gelataria — Trabalho em HTML ↗
+        </figcaption>
+
+    </a>
+</figure>
+
+                    <figure class="gallery-item">
+    <a href="trabalhos/equipamentoderede.pptx"
+       target="_blank"
+       rel="noopener">
+
+        <img src="imagens/trabalho-3.jpg"
+             alt="Pré-visualização do trabalho Equipamento de Rede">
+
+        <figcaption>
+            Equipamento de Rede — Apresentação PowerPoint ↗
+        </figcaption>
+
+    </a>
+</figure>
+
+                    <figure class="gallery-item">
+    <a href="trabalhos/introduçãoaolinux.docx"
+       target="_blank"
+       rel="noopener">
+
+        <img src="imagens/trabalho-2.jpg"
+             alt="Pré-visualização do trabalho de Word">
+
+        <figcaption>
+            Introdução ao Linux - Apresentação em Word ↗
+        </figcaption>
+
+    </a>
+</figure>
+
+                   
+<figure class="gallery-item">
+    <a href="trabalhos/chooseajob-inglês.pptx"
+       target="_blank"
+       rel="noopener">
+
+        <img src="imagens/trabalho-1.jpg"
+             alt="Pré-visualização do trabalho Choose a Job">
+
+        <figcaption>
+            Choose a Job - Inglês — Apresentação PowerPoint ↗
+        </figcaption>
+
+    </a>
+</figure>
+
+
+                </div>
+            </div>
+        </section>
+
+        <!-- OBJETIVOS -->
+
+        <section class="section section-alt" id="objetivos">
+            <div class="container">
+
+                <div class="section-heading">
+                    <p class="section-label">05 · Objetivos</p>
+
+                    <h2>
+                        Para onde quero <span>ir</span>
+                    </h2>
+
+                    <p>
+                        Os meus objetivos para o futuro profissional.
+                    </p>
+                </div>
+
+                <div class="objectives-grid">
+
+                    <article class="objective-card">
+                        <span>01</span>
+                        <h3>Continuar a aprender</h3>
+
+                        <p>
+                            Aprofundar os meus conhecimentos na área da
+                            Informática e conhecer novas tecnologias.
+                        </p>
+                    </article>
+
+                    <article class="objective-card">
+                        <span>02</span>
+                        <h3>Ganhar experiência</h3>
+
+                        <p>
+                            Aplicar os conhecimentos adquiridos em trabalhos
+                            práticos e experiências profissionais.
+                        </p>
+                    </article>
+
+                    <article class="objective-card">
+                        <span>03</span>
+                        <h3>Crescer profissionalmente</h3>
+
+                        <p>
+                            Encontrar uma oportunidade que me permita evoluir
+                            e construir o meu futuro profissional.
+                        </p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACTOS -->
+
+        <section class="section contact-section" id="contactos">
+            <div class="container">
+
+                <div class="contact-box">
+
+                    <div class="contact-text">
+                        <p class="section-label">06 · Contactos</p>
+
+                        <h2>
+                            Vamos <span>falar?</span>
+                        </h2>
+
+                        <p>
+                            Se quiseres entrar em contacto comigo,
+                            podes utilizar um dos meios abaixo.
+                        </p>
+                    </div>
+
+                    <div class="contact-links">
+
+                        <a
+                            href="mailto: ana.sofia22hjdo@gmail.com"
+                            class="contact-link"
+                        > 
+                            <span class="contact-icon">✉</span>
+
+                            <div>
+                                <small>Email</small>
+                                <strong>ana.sofia22hjdo@gmail.com</strong>
+                            </div>
+                        </a>
+
+                        <a
+                            href="https://www.linkedin.com/in/ana-sofia-019a90259/"
+                            target="_blank"
+                            rel="noopener"
+                            class="contact-link"
+                        >
+                            <span class="contact-icon">in</span>
+
+                            <div>
+                                <small>LinkedIn</small>
+                                <strong>Ana Sofia</strong>
+                            </div>
+                        </a>
+
+                       
+					<a
+							href="https://www.instagram.com/im_bad_guy02/#"
+							target="_blank"
+							rel="noopener noreferrer"
+							class="contact-link"
+					>
+						<span class="contact-icon" aria-hidden="true">
+						<svg viewBox="0 0 24 24" width="24" height="24" fill="none"
+						stroke="currentColor" stroke-width="2"
+						stroke-linecap="round" stroke-linejoin="round">
+						<rect x="3" y="3" width="18" height="18" rx="5"></rect>
+						<circle cx="12" cy="12" r="4"></circle>
+						<circle cx="18" cy="6" r="1" fill="currentColor"
+						stroke="none"></circle>
+					</svg>
+					</span>
+
+					<div>
+						<small>Instagram</small>
+						<strong>@im_bad_guy02</strong>
+					</div>
+					</a>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ -->
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+
+            <p>© 2026 · O Meu Portefólio</p>
+
+            <a href="#inicio" class="back-top">
+                ↑ Voltar ao início
+            </a>
+
+        </div>
+    </footer>
+
+    <!-- FUNCIONAMENTO DO BOTÃO DAS UFCDs -->
+
+    <script>
+        const botaoUFCD = document.getElementById("ufcd-toggle");
+        const listaUFCD = document.getElementById("ufcd-list");
+        const textoBotaoUFCD = document.getElementById("ufcd-button-text");
+
+        botaoUFCD.addEventListener("click", function () {
+            const estaAberta =
+                botaoUFCD.getAttribute("aria-expanded") === "true";
+
+            botaoUFCD.setAttribute(
+                "aria-expanded",
+                String(!estaAberta)
+            );
+
+            listaUFCD.hidden = estaAberta;
+
+            botaoUFCD.querySelector(".ufcd-arrow").textContent =
+                estaAberta ? "＋" : "−";
+
+            textoBotaoUFCD.textContent =
+                estaAberta
+                    ? "Ver lista de UFCDs"
+                    : "Fechar lista de UFCDs";
+        });
+    </script>
+
+</body>
+</html>
+```

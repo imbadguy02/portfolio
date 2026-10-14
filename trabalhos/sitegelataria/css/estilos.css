@@ -1,0 +1,66 @@
+body {
+	font-family: sans-serif, arial;
+	margin:0px;
+}
+
+.container {
+	max-width:1100px;
+	width:100%;
+	margin: 0 auto;
+	display:flex;
+	gap:50px;
+	justify-content: space-between;
+}
+
+.menu{
+	display:flex;	
+}
+
+header {
+	background: pink;
+}
+
+p{
+	line-height:26px;
+	font-size:16px;
+}
+
+footer{
+	background:pink;
+	text-align:center;
+	padding:12px;
+}
+
+.menu ul{
+	display:flex;/* coloca o conteudo em linha */
+	gap:20px;;/* cria um espaçamento entre o texto */
+	list-style:none;;/* retira o tipo de ponto na lista */
+}
+
+h1{
+	color:violet;
+}
+
+.coluna{
+	display:flex;
+
+}
+	
+.linha{
+	padding:2px;
+	width:100%;
+}
+
+img{
+	height:100%;
+	width:100%;
+	border-radius:10px;
+}
+			
+.linha img:hover{
+	opacity:0.5;
+	transform: scale(1.05);
+}
+
+
+
